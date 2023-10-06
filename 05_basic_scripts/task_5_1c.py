@@ -52,7 +52,8 @@ london_co = {
 
 
 zapros = input("Введите имя устройства: ")
-io = input("Введите имя параметра: ")
+par = ", ".join(london_co[zapros].keys())
+io = input(f"Введите имя параметра ({par}): ")
 
 print(london_co[zapros].get(io, 'Такого параметра нет'))
 
