@@ -46,7 +46,8 @@ london_co = {
 
 
 zapros = input("Введите имя устройства: ")
-io = input("Введите имя параметра: ")
+par = ", ".join(london_co[zapros].keys())
+io = input(f"Введите имя параметра ({par}): ")
 io = io.lower() 
 london2 = london_co[zapros]
 print(london2[io])
