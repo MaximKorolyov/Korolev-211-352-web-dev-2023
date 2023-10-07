@@ -12,6 +12,7 @@ login_manager.login_view = 'login'
 login_manager.login_message = 'Для доступа к этой странице вы должны пройти аутентификацию'
 login_manager.login_message_category = 'warning'
 
+# создаем массив с пользователями 
 def get_users():
     users = []
     users.append({
@@ -19,8 +20,14 @@ def get_users():
         'login': 'user',
         'password': 'qwerty'
     })
+    users.append({
+        'id': '2',
+        'login': 'maxim',
+        'password': '123456789'
+    })
     return users
 
+0
 class User(UserMixin):
     def __init__(self, id, login):
         self.id = id
@@ -28,7 +35,7 @@ class User(UserMixin):
         
 @login_manager.user_loader
 def load_user(user_id):
-    users = get_users()
+    users = get_users() # создаем массив с пользователями
     for user in users:
         if user_id == user['id']:
             return User(user['id'], user['login'])
