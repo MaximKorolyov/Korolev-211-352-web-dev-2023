@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+<h2>Дуступ получен, {{ current_user.login }}</h2>
+{% else %}
+<h2>Пользователь не авторизирован</h2>
+{% endif %}
+{% endblock %}
